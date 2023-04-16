@@ -11,6 +11,7 @@ class TestStack(unittest.TestCase):
     stack = Stack()
     stack.push(10)
 
+
     # Внутри пишем нужное количество методов (функций)
     def test_stack_node_init(self):
         # Пишем нужное количество проверок
@@ -21,7 +22,12 @@ class TestStack(unittest.TestCase):
         # Пишем нужное количество проверок
         self.assertIsInstance(TestStack.stack.top, Node)
         self.assertIsInstance(TestStack.stack, Stack)
-        self.assertEqual(TestStack.stack.top.data, 10)
-        self.assertEqual(TestStack.stack.top.next_node, None)
+
+    def test_stack_push_pop(self):
+        self.stack.push(8)
+        self.stack.push(6)
+        self.stack.pop()
+        self.assertEqual(TestStack.stack.top.data, 8)
+        self.assertEqual(TestStack.stack.top.next_node.data, 10)
 
 
